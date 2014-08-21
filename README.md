@@ -47,7 +47,20 @@ dpkg-reconfigure phpmyadmin
 - db Name:                  phpmyadmin
 - Webserver to reconfig:    apache2
 
-(7) Reboot
+(7) Setup phpmyadmin for wordpress
+```
+mysql -u root -p
+```
+- CREATE DATABASE wordpress;
+- CREATE USER wordpress@localhost IDENTIFIED BY 'default_password';
+- GRANT ALL PRIVILEGES ON wordpress.* TO wordpress@localhost;
+- FLUSH PRIVILEGES;
+- exit;
+
+(8) Wordpress
+./wordpress_get_and_run.sh
+
+(9) Reboot
 ```
 reboot
 ```
