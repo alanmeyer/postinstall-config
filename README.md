@@ -58,7 +58,7 @@ mysql -u root -p
 - exit;
 
 (8) Wordpress
-./wordpress_get_and_run.sh
+wget https://raw.github.com/alanmeyer/postinstall/master/wordpress_config.sh -O wordpress_config.sh
 
 (9) Reboot
 ```
