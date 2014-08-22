@@ -13,6 +13,8 @@ OS_VERSION=trusty
 IP=192.3.22.147
 HOSTNAME=vserver
 DOMAIN=ocmeyer.com
+MAIL=$HOSTNAME"."$DOMAIN
+WEB=$HOSTNAME"."$DOMAIN
 
 # Script files
 GIT_SCRIPT_PY=$GIT_SCRIPT".py"
@@ -35,9 +37,15 @@ sed -i "s/^\(os_version              = \).*/\1$OS_VERSION/g"            $GIT_SCR
 sed -i "s/^\(ip                      = \).*/\1$IP/g"                    $GIT_SCRIPT_CFG
 sed -i "s/^\(hostname                = \).*/\1$HOSTNAME/g"              $GIT_SCRIPT_CFG
 sed -i "s/^\(domain                  = \).*/\1$DOMAIN/g"                $GIT_SCRIPT_CFG
+sed -i "s/^\(mail                    = \).*/\1$MAIL/g"                  $GIT_SCRIPT_CFG
+sed -i "s/^\(web                     = \).*/\1$WEB/g"                   $GIT_SCRIPT_CFG
 
 # Update Apache SSL config script
 sed -i "s,^\(GIT_SHARE\).*,\1=$GIT_POSTINSTALL_CFG,g"                   $GIT_SCRIPT_A2SSL
+sed -i "s,^\(HOSTNAME\).*,\1=$HOSTNAME,g"                               $GIT_SCRIPT_A2SSL
+sed -i "s,^\(DOMAIN\).*,\1=$DOMAIN,g"                                   $GIT_SCRIPT_A2SSL
+sed -i "s,^\(MAIL\).*,\1=$MAIL,g"                                       $GIT_SCRIPT_A2SSL
+sed -i "s,^\(WEB\).*,\1=$WEB,g"                                         $GIT_SCRIPT_A2SSL
 
 # Change to executable
 chmod +x *.sh
