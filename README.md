@@ -1,9 +1,9 @@
 # postinstall
 #### Alan Meyer
 ##### https://github.com/alanmeyer/postinstall-config
-   
-###### Instructions   
-   
+ 
+###### Instructions
+
 (1) Reset VPS to Ubuntu 14.04 LTS & set desired root password (if required)
 ```
 passwd
@@ -25,7 +25,7 @@ echo "AllowGroups sshusers" | tee -a /etc/ssh/sshd_config
 
 (4) Setup Apache2 SSL
 ```
-./apache2_ssl_config.sh vserver ocmeyer.com vserver.ocmeyer.com vserver.ocmeyer.com
+./apache2_ssl_config.sh
 ```
 
 (5) Setup MySQL
