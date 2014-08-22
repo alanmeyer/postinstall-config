@@ -25,7 +25,7 @@ echo "AllowGroups sshusers" | tee -a /etc/ssh/sshd_config
 
 (4) Setup Apache2 SSL
 ```
-./apache2_ssl_config.sh
+./apache2_ssl_config.sh vserver ocmeyer.com vserver.ocmeyer.com vserver.ocmeyer.com
 ```
 
 (5) Setup MySQL
@@ -59,6 +59,8 @@ mysql -u root -p
 
 (8) Wordpress
 wget https://raw.github.com/alanmeyer/postinstall/master/wordpress_config.sh -O wordpress_config.sh
+chmod +x wordpress_config.sh
+./wordpress_config.sh
 
 (9) Reboot
 ```
