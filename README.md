@@ -51,11 +51,14 @@ dpkg-reconfigure phpmyadmin
 ```
 mysql -u root -p
 ```
-- CREATE DATABASE wordpress;
-- CREATE USER wordpress@localhost IDENTIFIED BY 'default_password';
-- GRANT ALL PRIVILEGES ON wordpress.* TO wordpress@localhost;
-- FLUSH PRIVILEGES;
-- exit;
+Enter the password then use the following commands
+```
+CREATE DATABASE wordpress;
+CREATE USER wordpress@localhost IDENTIFIED BY 'default_password';
+GRANT ALL PRIVILEGES ON wordpress.* TO wordpress@localhost;
+FLUSH PRIVILEGES;
+exit;
+```
 
 (8) Wordpress
 wget https://raw.github.com/alanmeyer/postinstall/master/wordpress_config.sh -O wordpress_config.sh
