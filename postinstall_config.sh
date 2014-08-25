@@ -53,10 +53,8 @@ sed -i "s,^\(WEB\).*,\1=$WEB,g"                                         $GIT_SCR
 # Change to executable
 chmod +x *.sh
 
-# Make sure we have python
-# Note: Sometimes missing on minimal installs
-apt-get update > /tmp/python.log
-apt-get -y install python >> /tmp/python.log
+# Make sure we have python installed
+apt-get -y --allow-unauthenticated install python > /dev/null
 
 # Run our script with our configuration
 python $GIT_SCRIPT_PY -c $GIT_SCRIPT_CFG
