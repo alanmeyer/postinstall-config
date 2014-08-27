@@ -61,10 +61,11 @@ exit;
 ```
 
 (8) Wordpress
+```
 wget https://raw.github.com/alanmeyer/postinstall/master/wordpress_config.sh -O wordpress_config.sh
 chmod +x wordpress_config.sh
 ./wordpress_config.sh
-
+```
 (9) Reboot
 ```
 reboot
