@@ -14,7 +14,7 @@ passwd
 echo 'check_certificate = off' | tee $HOME/.wgetrc
 mkdir -p ~/scripts/postinstall
 cd ~/scripts/postinstall
-wget http://raw.github.com/alanmeyer/postinstall-config/mserver/postinstall_config.sh -O postinstall_config.sh
+wget http://raw.github.com/alanmeyer/postinstall-config/sunset/postinstall_config.sh -O postinstall_config.sh
 chmod +x *.sh
 ./postinstall_config.sh
 ```
@@ -25,19 +25,14 @@ passwd administrator
 echo "AllowGroups sshusers" | tee -a /etc/ssh/sshd_config
 ```
 
-(4) Setup Apache2 SSL
-```
-./apache2_ssl_config.sh
-```
-
-(5) Setup MySQL
+(4) Setup MySQL
 ```
 mysql_secure_installation
 ```
 - n -> y -> <password>
 - y -> y -> y -> y
 
-(6) Setup phpmyadmin
+(5) Setup phpmyadmin
 ```
 dpkg-reconfigure phpmyadmin
 ```
