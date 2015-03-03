@@ -6,7 +6,7 @@
 # Note: mail can change based on if this is the primary domain mail server or not
 #       e.g. primary:   %(domain)s
 #            secondary: %(hostname)s.%(domain)s
-GIT_POSTINSTALL=https://raw.github.com/alanmeyer/postinstall/sunset
+GIT_POSTINSTALL=https://raw.github.com/alanmeyer/postinstall/master
 GIT_POSTINSTALL_CFG=https://raw.github.com/alanmeyer/postinstall-config/sunset
 GIT_SCRIPT=postinstall
 OS_VERSION=trusty
