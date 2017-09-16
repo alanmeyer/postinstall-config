@@ -6,13 +6,13 @@
 # Note: web or mail can change based on if this is the primary domain mail server or not
 #       e.g. primary:   %(domain)s
 #            secondary: %(hostname)s.%(domain)s
-GIT_POSTINSTALL=https://raw.github.com/alanmeyer/postinstall/master
-GIT_POSTINSTALL_CFG=https://raw.github.com/alanmeyer/postinstall-config/server
+GIT_POSTINSTALL=https://raw.github.com/alanmeyer/postinstall/centos6
+GIT_POSTINSTALL_CFG=https://raw.github.com/alanmeyer/postinstall-config/rainbow
 GIT_SCRIPT=postinstall
 OS_VERSION=trusty
-IP=167.160.36.129
-HOSTNAME=server
-DOMAIN=ocmeyer.com
+IP=10.1.50.41
+HOSTNAME=rainbow
+DOMAIN=ocmeyer.local
 FQDN=$HOSTNAME"."$DOMAIN
 MAIL=$HOSTNAME"."$DOMAIN
 WEB=$DOMAIN
@@ -54,7 +54,8 @@ sed -i "s,^\(WEB\).*,\1=$WEB,g"                                         $GIT_SCR
 chmod +x *.sh
 
 # Make sure we have python installed
-apt-get -y --allow-unauthenticated install python > /dev/null
+#apt-get -y --allow-unauthenticated install python > /dev/null
+yum -y install python
 
 # Run our script with our configuration
 python $GIT_SCRIPT_PY -c $GIT_SCRIPT_CFG
