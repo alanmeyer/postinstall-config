@@ -4,70 +4,31 @@
  
 ###### Instructions
 
-(1) Reset VPS to Ubuntu 14.04 LTS & set desired root password (if required)
+(1) Load the CentOS 6.9 baseline minimal install image (if required)
+(2) Set your root password (if required)
 ```
 passwd
 ```
-
-(2) Run postinstall
+(3) Enable the network interface (if required)
 ```
-mkdir -p ~/scripts/postinstall
-cd ~/scripts/postinstall
-wget https://raw.github.com/alanmeyer/postinstall-config/server/postinstall_config.sh -O postinstall_config.sh
+sed -i 's/^ONBOOT.*/ONBOOT=yes/g' /etc/sysconfig/network-scripts/ifcfg-eth0
+service network restart
+```
+(4) Download and run postinstall
+```
+mkdir scripts
+cd scripts
+yum -y install wget
+wget https://raw.github/com/alanmeyer/postinstall-config/rainbow/postinstall_config.sh -O postinstall_config.sh
 chmod +x *.sh
-./postinstall_config.sh
+./postinstall-config.sh
 ```
-(3) Set administrator password and lock out ssh to other groups
+(5) Set administrator password and lock out ssh to other groups
 ```
 passwd administrator
 echo "AllowGroups sshusers" | tee -a /etc/ssh/sshd_config
 ```
-
-(4) Setup Apache2 SSL
-```
-./apache2_ssl_config.sh
-```
-
-(5) Setup MySQL
-```
-mysql_secure_installation
-```
-- n -> y -> <password>
-- y -> y -> y -> y
-
-(6) Setup phpmyadmin
-```
-dpkg-reconfigure phpmyadmin
-```
-- Reinstall db:             Yes
-- Connection method:        unix socket
-- Administrator:            root
-- Password:                 <password-from-mysql-setup>
-- MySQL User:               phpmyadmin
-- db Name:                  phpmyadmin
-- Webserver to reconfig:    apache2
-
-(7) Setup phpmyadmin for wordpress
-```
-mysql -u root -p
-```
-Enter the password then use the following commands
-```
-CREATE DATABASE wordpress;
-CREATE USER wordpress@localhost IDENTIFIED BY 'default_password';
-GRANT ALL PRIVILEGES ON wordpress.* TO wordpress@localhost;
-FLUSH PRIVILEGES;
-exit;
-```
-
-(8) Wordpress
-```
-wget https://raw.github.com/alanmeyer/postinstall/master/wordpress_config.sh -O wordpress_config.sh
-chmod +x wordpress_config.sh
-./wordpress_config.sh
-```
-
-(9) Reboot
+(6) Reboot
 ```
 reboot
 ```
