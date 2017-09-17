@@ -9,7 +9,7 @@
 GIT_POSTINSTALL=https://raw.github.com/alanmeyer/postinstall/centos6
 GIT_POSTINSTALL_CFG=https://raw.github.com/alanmeyer/postinstall-config/rainbow
 GIT_SCRIPT=postinstall
-OS_VERSION=trusty
+OS_VERSION=Final
 IP=10.1.50.41
 HOSTNAME=rainbow
 DOMAIN=ocmeyer.local
