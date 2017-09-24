@@ -19,7 +19,7 @@ service network restart
 mkdir -p ~/scripts/postinstall
 cd ~/scripts/postinstall
 yum -y install wget
-wget https://raw.githubusercontent.com/alanmeyer/postinstall-config/blackrock/postinstall_config.sh -O postinstall_config.sh
+wget https://raw.githubusercontent.com/alanmeyer/postinstall-config/rainbow/postinstall_config.sh -O postinstall_config.sh
 chmod +x *.sh
 ./postinstall-config.sh
 ```
