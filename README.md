@@ -16,10 +16,10 @@ service network restart
 ```
 (4) Download and run postinstall
 ```
-mkdir scripts
-cd scripts
+mkdir -p ~/scripts/postinstall
+cd ~/scripts/postinstall
 yum -y install wget
-wget https://raw.github/com/alanmeyer/postinstall-config/blackrock/postinstall_config.sh -O postinstall_config.sh
+wget https://raw.githubusercontent.com/alanmeyer/postinstall-config/blackrock/postinstall_config.sh -O postinstall_config.sh
 chmod +x *.sh
 ./postinstall-config.sh
 ```
